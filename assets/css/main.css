@@ -68,6 +68,38 @@
 :root {
   scroll-behavior: smooth;
 }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+/* الموبايلات */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* التابلت */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+/* الديسكتوب */
+@media (min-width: 1025px) {
+  body {
+    font-size: 18px;
+    padding: 30px;
+  }
+}
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
