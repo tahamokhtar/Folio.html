@@ -1,16 +1,4 @@
-/**
-* Template Name: Folio
-* Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
-* Updated: Aug 08 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Playfair Display", sans-serif;
@@ -227,11 +215,6 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-@media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
-
   .navmenu ul {
     margin: 0;
     padding: 0;
@@ -334,7 +317,7 @@ h6 {
 }
 
 /* Navmenu - Mobile */
-@media (max-width: 1199px) {
+@media (max-width: 600px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
@@ -656,10 +639,6 @@ section,
   scroll-margin-top: 80px;
   overflow: clip;
 }
-
-@media (max-width: 1199px) {
-
-  section,
   .section {
     scroll-margin-top: 56px;
   }
@@ -688,7 +667,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  width: 100%;
+  width: 90%;
   min-height: 170vh;
   position: relative;
   padding: 80px 40px;
@@ -701,8 +680,8 @@ section,
   position: absolute;
   inset: 0;
   display:inline-block;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   object-fit: cover;
   z-index: 1;
 }
@@ -1498,10 +1477,30 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+/* تعطيل التأخير لكل الأجهزة */
+[data-aos-delay] {
+  transition-delay: 0s !important;   /* إزالة أي transition-delay */  
+  animation-delay: 0s !important;    /* إزالة أي animation-delay */  
+}
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+/* مثال: هواتف */
+@media only screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+/* مثال: تابليت */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  [data-aos-delay] {
+    transition-delay: 100ms !important;  /* تأخير خفيف للتابلت */
+    animation-delay: 100ms !important;
+  }
+}
+/* مثال: ديسكتوب */
+@media only screen and (min-width: 1025px) {
+  [data-aos-delay] {
+    transition-delay: 300ms !important;  /* تأخير أكبر على الشاشات الكبيرة */
+    animation-delay: 300ms !important;
+  }
 }
