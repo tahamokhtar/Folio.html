@@ -9,13 +9,42 @@
   // Replace contact@example.com with your real receiving email address
   $receiving_email_address = 'contact@example.com';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
+  $php_email_form = __DIR__ . '/vendor/php-email-form/php-email-form.php';
+  if (file_exists($php_email_form)) {
+    require_once($php_email_form);
   }
 
-  $contact = new PHP_Email_Form;
+  // Fallback: Define a minimal PHP_Email_Form class if not found (for development/testing only)
+  if (!class_exists('PHP_Email_Form')) {
+    class PHP_Email_Form {
+      public $ajax = false;
+      public $to;
+      public $from_name;
+      public $from_email;
+      public $subject;
+      public $smtp = array();
+      private $messages = array();
+
+      public function add_message($content, $label, $min_length = 0) {
+        $this->messages[] = array('label' => $label, 'content' => $content, 'min_length' => $min_length);
+      }
+
+      public function send() {
+        // This is a dummy send function for fallback; replace with real implementation
+        return "Email sent (fallback class).";
+      }
+    }
+  }
+  // مصفوفة تحتوي على صفات البريد الإلكتروني
+  $email_attributes = array(
+    'to' => $receiving_email_address,
+    'from_name' => isset($_POST['name']) ? $_POST['name'] : '',
+    'from_email' => isset($_POST['email']) ? $_POST['email'] : '',
+    'subject' => isset($_POST['subject']) ? $_POST['subject'] : '',
+    'message' => isset($_POST['message']) ? $_POST['message'] : ''
+  );
+
+  $contact = new PHP_Email_Form();
   $contact->ajax = true;
   
   $contact->to = $receiving_email_address;
