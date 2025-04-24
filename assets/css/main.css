@@ -928,7 +928,7 @@ section,
 
 @media (min-width: 1024px) {
   .testimonials .testimonial-item p {
-    width: 80%;
+    width: 100%
   }
 }
 
