@@ -574,15 +574,6 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
 --------------------------------------------------------------*/
 .page-title {
@@ -732,7 +723,7 @@ section,
   color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero h2 {
     font-size: 32px;
   }
@@ -935,7 +926,7 @@ section,
   background-color: var(--accent-color);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .testimonials .testimonial-item p {
     width: 80%;
   }
